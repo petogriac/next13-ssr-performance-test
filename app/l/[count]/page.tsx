@@ -1,44 +1,9 @@
-'use client';
-
 import Filter from '@/components/filter/filter';
 import ArticleItem from '@/components/article-item/article-item';
 import './listing.scss';
-import { useEffect, useState } from 'react';
 
-export default function Listing({params}: { params: { count: string } }) {
-    const [data,setData]: [
-        data: any,
-        setData: any
-    ]=useState([]);
-    const getData= async ()=>{
-        await new Promise(resolve => setTimeout(resolve, +params.count));
-
-        fetch('/data.json'
-            ,{
-                headers : {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                }
-            }
-        )
-            .then(function(response){
-                console.log(response)
-                return response.json();
-            })
-            .then(function(myJson) {
-                console.log(myJson);
-                setData(myJson.content)
-            });
-    }
-
-    useEffect(()=>{
-        getData();
-    },[])
-
-
-    if(!data){
-        return <div>Loading...</div>
-    }
+export default async function Listing({params}: { params: { count: string }}) {
+    const data = await getData(+params.count);
 
     return (
         <div>
@@ -48,7 +13,7 @@ export default function Listing({params}: { params: { count: string } }) {
 
             <div className='listing-items'>
                 {
-                    data.map((article: any) => (
+                    data.content.map((article: any) => (
                         <ArticleItem
                             key={article.id}
                             id={article.id}
@@ -62,9 +27,9 @@ export default function Listing({params}: { params: { count: string } }) {
     )
 }
 
-async function getData() {
-    const res = await fetch('data.json')
-
+async function getData(sleep: number) {
+    const sleeper = await new Promise(resolve => setTimeout(resolve,sleep))
+    const res = await fetch('https://www.bazar.at/api/article/l/07-wo/s?randVal=18')
     // The return value is *not* serialized
     // You can return Date, Map, Set, etc.
 
