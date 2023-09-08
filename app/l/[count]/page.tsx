@@ -11,7 +11,7 @@ export default function Listing({params}: { params: { count: string } }) {
         setData: any
     ]=useState([]);
     const getData= async ()=>{
-        // await new Promise(resolve => setTimeout(resolve, +params.count));
+        await new Promise(resolve => setTimeout(resolve, +params.count));
 
         fetch('/data.json'
             ,{
