@@ -1,9 +1,15 @@
+@import "app/responsivity";
+
 .heart {
   position: absolute;
-  right: 20px;
-  top: 20px;
   width: 1rem;
   display: inline-block;
+  right: 20px;
+  bottom: 20px;
+
+  @include lg() {
+    top: 20px;
+  }
 
   &:hover {
     transform: scale(1.2);

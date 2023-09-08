@@ -1,11 +1,15 @@
 import styles from './article-item.module.scss';
 import Link from 'next/link';
 import Bookmark from '@/components/bookmark/bookmark';
-export default function ArticleItem({id, title, description}: {id: number, title: string, description: string }) {
+import Image from 'next/image';
+export default function ArticleItem({id, title, description, image}: {id: number, title: string, description: string, image: string}) {
     return (
         <Link href={'/d'} className={styles.container}>
-            <h1>{title}</h1>
-            <p>{description}</p>
+            <Image src={image} alt={''} width={200} height={150}></Image>
+            <div>
+                <h1>{title}</h1>
+                <p>{description}</p>
+            </div>
             <Bookmark id={id}/>
         </Link>
     )
