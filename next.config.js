@@ -9,7 +9,7 @@ module.exports = {
         remotePatterns: [
             {
                 protocol: 'https',
-                hostname: 'asset.bazar.at',
+                hostname: 'asset.dev.bricbrac.at',
             }
         ]
     }

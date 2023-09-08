@@ -1,6 +1,7 @@
 import Filter from '@/components/filter/filter';
 import ArticleItem from '@/components/article-item/article-item';
 import './listing.scss';
+import * as data from '@/data.json';
 
 export default async function Listing({params}: { params: { count: string }}) {
     const data = await getData(+params.count);
@@ -29,14 +30,6 @@ export default async function Listing({params}: { params: { count: string }}) {
 
 async function getData(sleep: number) {
     const sleeper = await new Promise(resolve => setTimeout(resolve,sleep))
-    const res = await fetch('https://www.bazar.at/api/article/l/07-wo/s?randVal=18')
-    // The return value is *not* serialized
-    // You can return Date, Map, Set, etc.
 
-    if (!res.ok) {
-        // This will activate the closest `error.js` Error Boundary
-        throw new Error('Failed to fetch data')
-    }
-
-    return res.json()
+    return data;
 }
