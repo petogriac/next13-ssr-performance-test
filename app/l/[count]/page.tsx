@@ -12,7 +12,7 @@ export default function Listing({params}: { params: { count: string } }) {
             <Filter style={{marginBottom: '20px'}}/>
 
             <div className='listing-items'>
-                {articles.map(article => (<ArticleItem key={article} title={'Dummy Article ' + article } description={'Lorem ipsum ...'}/>))}
+                {articles.map(article => (<ArticleItem key={article} id={article} title={'Dummy Article ' + article } description={'Lorem ipsum ...'}/>))}
             </div>
         </div>
     )
