@@ -14,7 +14,7 @@ export default async function Listing({params}: { params: { count: string }}) {
 
             <History/>
 
-            <Filter style={{marginBottom: '20px'}}/>
+            <Filter style={{marginBottom: '20px'}} values={{subcategory: data.filter.subCategory}}/>
 
             <div className={styles.items}>
                 {
