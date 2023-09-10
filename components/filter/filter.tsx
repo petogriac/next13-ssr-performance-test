@@ -2,13 +2,14 @@
 
 import styles from './filter.module.scss'
 import { FormEvent } from 'react';
-export default function Filter({style}: { style?: any}) {
+
+export default function Filter({style}: { style?: any }) {
     // TODO can be done probably more efficiently in next13
     function onSubmit(event: FormEvent<HTMLFormElement>) {
         console.log('submit')
         event.preventDefault();
         const formData = new FormData(event.currentTarget)
-        console.log(formData)
+        console.log(formData.get('subcategory'), formData.get('address'), formData.get('type'))
     }
 
     return (

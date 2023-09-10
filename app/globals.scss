@@ -1,32 +1,34 @@
+@import "responsivity";
+
 /** BOILERPLATE */
 *, *::before, *::after {
-    box-sizing: border-box;
-    border: none;
+  box-sizing: border-box;
+  border: none;
 }
 
 img {
-    display: block;
-    max-width: 100%;
+  display: block;
+  max-width: 100%;
 }
 
 menu {
-    list-style: none;
-    padding-left: 0;
+  list-style: none;
+  padding-left: 0;
 }
 
 a {
-    /* Places underlines below the descenders */
-    text-underline-position: under;
+  /* Places underlines below the descenders */
+  text-underline-position: under;
 }
 
 html {
-    -webkit-text-size-adjust: none; /* for iOS Safari */
-    text-size-adjust: none; /* for other mobile browsers */
-    scroll-padding-top: 2rem;
+  -webkit-text-size-adjust: none; /* for iOS Safari */
+  text-size-adjust: none; /* for other mobile browsers */
+  scroll-padding-top: 2rem;
 }
 
 :focus:not(:focus-visible) {
-    outline: none;
+  outline: none;
 }
 
 label,
@@ -36,19 +38,24 @@ summary,
 [type=radio],
 [type=submit],
 [type=checkbox] {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 body {
-    margin: 0;
-    overflow-y: scroll;
+  margin: 0;
+  overflow-y: scroll;
 }
 
 .page {
-    padding: 20px;
+  margin: 0 20px;
+
+  @include lg {
+    margin: 0 auto;
+    max-width: 900px;
+  }
 }
 
 input {
-    box-shadow: 0 0 3px gray;
+  box-shadow: 0 0 3px gray;
 }
 

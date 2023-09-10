@@ -1,18 +1,22 @@
 import Filter from '@/components/filter/filter';
 import ArticleItem from '@/components/article-item/article-item';
-import './listing.scss';
+import styles from './listing.module.scss';
 import * as data from '@/data.json';
+import History from '@/components/history/history';
 
 export default async function Listing({params}: { params: { count: string }}) {
     const data = await getData(+params.count);
 
     return (
-        <div>
+        <div className={styles.list}>
             <h1>Listing {params.count}</h1>
+            <p>{data.content[0].common.title + ' ' + data.content[1].common.title}</p>
+
+            <History/>
 
             <Filter style={{marginBottom: '20px'}}/>
 
-            <div className='listing-items'>
+            <div className={styles.items}>
                 {
                     data.content.map((article: any) => (
                         <ArticleItem
